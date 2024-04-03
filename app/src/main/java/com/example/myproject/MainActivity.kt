@@ -3,6 +3,7 @@ package com.example.myproject
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -12,9 +13,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.room.Room
+import dataBase.MyDB
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
-    lateinit var sp : SharedPreferences
+    //lateinit var sp : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,19 +36,29 @@ class MainActivity : AppCompatActivity() {
         var passwordEditText = findViewById<EditText>(R.id.password_input)
 
 
-        sp = getSharedPreferences("sp_file_prj", MODE_PRIVATE)
+       // sp = getSharedPreferences("sp_file_prj", MODE_PRIVATE)
+
+        var db = Room.databaseBuilder(this,MyDB::class.java,"mydatabase")
+            .fallbackToDestructiveMigration().build()
+        var h = Handler()
 
         loginButton.setOnClickListener(){
             var username = usernameEditText.text.toString()
             var password = passwordEditText.text.toString()
 
-            if(username.equals(sp.getString("LatestUsername","")) && password.equals(sp.getString("LatestPassword",""))) {
-                Toast.makeText(this,"Logged In Successfully",Toast.LENGTH_LONG).show()
-                val myIntent = Intent(this, activityDashboard::class.java)
-                startActivity(myIntent)
-            }
-            else {
-                Toast.makeText(this, "Data is Incorrect", Toast.LENGTH_LONG).show()
+            // Use a thread to query data from the database asynchronously
+            thread {
+                db.myDao().readData().forEach{
+                    h.post {
+                        var username2 = "${it.myname}"
+                        var password2 = "${it.mypassword}"
+                        // Check if username and password match with database records
+                        if ((username.equals(username2)) && (password.equals(password2))) {
+                            var myIntent = Intent(this, activityDashboard::class.java)
+                            startActivity(myIntent)
+                        }
+                    }
+                }
             }
         }
 

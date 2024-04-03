@@ -21,7 +21,7 @@
             android:adjustViewBounds="true"
             android:padding="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/iphone"
+            android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

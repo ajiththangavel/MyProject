@@ -1,6 +1,7 @@
 package com.example.myproject
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -12,7 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.room.Room
+import dataBase.MyDB
+import dataBase.MyEntity
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
 class RegisterActivity : AppCompatActivity() {
@@ -38,17 +44,27 @@ class RegisterActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerView.adapter = adapter
 
+        var db = Room.databaseBuilder(this, MyDB::class.java,"mydatabase")
+            .fallbackToDestructiveMigration().build()
+        var h = Handler()
+
         buttonRegister.setOnClickListener(){
 
             if((registerUsername.text.toString() != "") && (registerPassword.text.toString() != "")) {
 
-                val sp_edit = sp.edit()
+               /* val sp_edit = sp.edit()
                 sp_edit.putString("LatestPassword", registerPassword.text.toString())
                 sp_edit.putString("LatestUsername", registerUsername.text.toString())
                 sp_edit.commit()
+*/
 
+                GlobalScope.launch {
+                    var users = MyEntity()
+                    users.myname = registerUsername.text.toString()
+                    users.mypassword = registerPassword.text.toString()
+                    db.myDao().saveData(users)
+                }
                 Toast.makeText(this, "Registered Successfully", Toast.LENGTH_LONG).show()
-
                 finish()
             }
             else
