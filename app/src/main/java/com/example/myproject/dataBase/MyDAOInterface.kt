@@ -1,4 +1,4 @@
-package dataBase
+package com.example.myproject.dataBase
 
 import androidx.room.Dao
 import androidx.room.Insert
