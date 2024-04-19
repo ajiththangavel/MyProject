@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class MyEntity {
+ class MyEntity {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id_column")
     var myid : Int = 0

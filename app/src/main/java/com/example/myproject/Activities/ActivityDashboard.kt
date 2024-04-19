@@ -1,26 +1,25 @@
-package com.example.myproject
+package com.example.myproject.Activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.example.myproject.Adapters.MyRecyclerAdapterDashboard
+import com.example.myproject.API_Classes.ApiClient
+import com.example.myproject.DataClasses.API_Data
+import com.example.myproject.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class activityDashboard : AppCompatActivity(),AdapterClass.OnItemClickListener {
-    lateinit var myDataList: MutableList<DataClass>
-    lateinit var myAdapter: AdapterClass // Changed to MyUsersAdapter
-
+class activityDashboard : AppCompatActivity(), MyRecyclerAdapterDashboard.OnItemClickListener {
+    lateinit var myDataList: MutableList<API_Data>
+    lateinit var myAdapter: MyRecyclerAdapterDashboard // Changed to MyUsersAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
@@ -31,11 +30,11 @@ class activityDashboard : AppCompatActivity(),AdapterClass.OnItemClickListener {
             insets
         }*/
         myDataList = ArrayList()
-        myAdapter = AdapterClass(myDataList, this) // Pass this as the listener
+        myAdapter = MyRecyclerAdapterDashboard(myDataList, this) // Pass this as the listener
         //setting ToolBar
         val toolbar = findViewById<Toolbar>(R.id.toolbarMain)
         setSupportActionBar(toolbar)
-        val myRecyclerView = findViewById<RecyclerView>(R.id.RecyclerView)
+        val myRecyclerView = findViewById<RecyclerView>(R.id.RecyclerDashboard)
         //setting Vertical Layout for Recycler view
         myRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         myRecyclerView.adapter = myAdapter
@@ -52,11 +51,11 @@ class activityDashboard : AppCompatActivity(),AdapterClass.OnItemClickListener {
         val makeCall = ApiClient.retrofitBuilder.getData()
 
         // Enqueue the call to execute asynchronously
-        makeCall.enqueue(object : Callback<List<DataClass>> {
-            override fun onResponse(call: Call<List<DataClass>>?, response: Response<List<DataClass>>?)
+        makeCall.enqueue(object : Callback<List<API_Data>> {
+            override fun onResponse(call: Call<List<API_Data>>?, response: Response<List<API_Data>>?)
             {
                 // Handle response
-                val dataList: List<DataClass>? = response?.body()
+                val dataList: List<API_Data>? = response?.body()
                 if (dataList != null) {
                     Log.d("DataList", dataList.toString())
                     myDataList.clear() // Clear existing data in myDataList
@@ -65,7 +64,7 @@ class activityDashboard : AppCompatActivity(),AdapterClass.OnItemClickListener {
                 }
             }
 
-            override fun onFailure(call: Call<List<DataClass>>?, t: Throwable?) {
+            override fun onFailure(call: Call<List<API_Data>>?, t: Throwable?) {
                 Log.i("mytag", "Error is ${t.toString()}")
             }
         })
@@ -75,7 +74,7 @@ class activityDashboard : AppCompatActivity(),AdapterClass.OnItemClickListener {
         menuInflater.inflate(R.menu.menu_toolbar,menu)
         return true
     }
-    override fun onItemClick(data: DataClass) {
+    override fun onItemClick(data: API_Data) {
 
         // start the DetailsViewActivity by data  passed by extra
         val intent = Intent(this, DetailsViewActivity::class.java)
@@ -87,6 +86,10 @@ class activityDashboard : AppCompatActivity(),AdapterClass.OnItemClickListener {
         when(item.itemId){
             R.id.itemLogout -> finish()
             R.id.exitApp -> finishAffinity()
+            R.id.cart -> {
+                val intent = Intent(this, DetailsViewActivity::class.java)
+                startActivity(intent)
+            }
         }
         return true
     }

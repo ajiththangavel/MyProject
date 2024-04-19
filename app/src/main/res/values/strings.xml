@@ -7,4 +7,6 @@
     <string name="enter_password">Enter Password</string>
     <string name="enter_username">Enter Username</string>
     <string name="enter_name">Enter name</string>
+    <string name="title">Title</string>
+    <string name="select">Select</string>
 </resources>

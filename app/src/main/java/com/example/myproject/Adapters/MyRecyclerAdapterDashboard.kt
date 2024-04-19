@@ -1,28 +1,33 @@
-package com.example.myproject
+package com.example.myproject.Adapters
 
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myproject.DataClasses.API_Data
+import com.example.myproject.databinding.DashboardLayoutBinding
 
 // Define AdapterClass, which is a RecyclerView.Adapter
-class AdapterClass(private var DataList: MutableList<DataClass>, private val itemClickListener: OnItemClickListener) :
-    RecyclerView.Adapter<AdapterClass.MyViewHolder>() {
+class MyRecyclerAdapterDashboard(private var DataList: MutableList<API_Data>, private val itemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<MyRecyclerAdapterDashboard.MyViewHolder>() {
     // Interface to handle item click events
     interface OnItemClickListener {
-        fun onItemClick(data: DataClass)
+        fun onItemClick(data: API_Data)
     }
 
     // ViewHolder class to hold references to views
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var title: TextView = itemView.findViewById(R.id.title)
-        var image: ImageView = itemView.findViewById(R.id.image)
+    class MyViewHolder(private val binding:DashboardLayoutBinding ) : RecyclerView.ViewHolder(binding.root) {
+        //using View Binding
+        var title: TextView = binding.title
+        var image: ImageView = binding.image
+        var isSelected: CheckBox = binding.checkbox
         // Bind data to views
-        fun bind(data: DataClass) {
+        fun bind(data: API_Data) {
             title.text = data.title
             // Load image using Glide Library
             Glide.with(itemView.context)
@@ -34,9 +39,9 @@ class AdapterClass(private var DataList: MutableList<DataClass>, private val ite
     // Create view holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // Inflate layout for each item view
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.dashboard_layout, parent, false)
-        return MyViewHolder(itemView)
+        val binding = DashboardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return MyViewHolder(binding)
     }
 
     // Bind data to view holder
@@ -47,6 +52,17 @@ class AdapterClass(private var DataList: MutableList<DataClass>, private val ite
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(data)
         }
+        holder.isSelected.setOnClickListener {
+            val pos = holder.adapterPosition
+            if(holder.isSelected.isChecked)
+                Toast.makeText(holder.itemView.context, "item $pos selected",Toast.LENGTH_LONG).show()
+            else
+                Toast.makeText(holder.itemView.context, "item $pos DeSelected",Toast.LENGTH_LONG).show()
+
+
+        }
+
+
     }
 
     // Return number of items in the data list
@@ -55,7 +71,7 @@ class AdapterClass(private var DataList: MutableList<DataClass>, private val ite
     }
 
     // Function to update adapter data
-    fun setData(newDataList: List<DataClass>) {
+    fun setData(newDataList: List<API_Data>) {
         DataList.clear() // Clear existing data
         DataList.addAll(newDataList) // Add new data
         notifyDataSetChanged() // Notify adapter about the changes

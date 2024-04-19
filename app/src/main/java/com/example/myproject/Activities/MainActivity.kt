@@ -1,4 +1,4 @@
-package com.example.myproject
+package com.example.myproject.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.myproject.dataBase.MyDB
+import com.example.myproject.R
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         registerView.setOnClickListener(){
            // Toast.makeText(this, "Register is Pressed", Toast.LENGTH_LONG).show()
-            val myIntent = Intent(this, RegisterActivity::class.java)
+            val myIntent = Intent(this, RegistrationActivity::class.java)
             startActivity(myIntent)
 
 

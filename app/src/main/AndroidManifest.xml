@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,10 @@
         android:theme="@style/Theme.MyProject"
         tools:targetApi="31">
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".Activities.Cart_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +27,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailsViewActivity"
+            android:name=".Activities.DetailsViewActivity"
             android:exported="false" />
         <activity
-            android:name=".activityDashboard"
+            android:name=".Activities.activityDashboard"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activities.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

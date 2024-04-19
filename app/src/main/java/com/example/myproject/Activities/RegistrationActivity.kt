@@ -1,4 +1,4 @@
-package com.example.myproject
+package com.example.myproject.Activities
 
 import android.os.Bundle
 import android.os.Handler
@@ -13,10 +13,11 @@ import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
 import com.example.myproject.dataBase.MyDB
 import com.example.myproject.dataBase.MyEntity
+import com.example.myproject.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RegisterActivity : AppCompatActivity() {
+class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
@@ -70,7 +71,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_toolbar ,menu)
+        menuInflater.inflate(R.menu.menu_toolbar,menu)
         return true
     }
 }

@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml">
+        <config>
+          <theme>@style/Theme.MyProject</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml">
         <config>
           <theme>@style/Theme.MyProject</theme>
@@ -30,6 +35,11 @@
           <theme>@style/Theme.MyProject</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/cart_list_layout.xml">
+        <config>
+          <theme>@style/Theme.MyProject</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_layout.xml">
         <config>
           <theme>@style/Theme.MyProject</theme>
@@ -51,8 +61,30 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55af3859-d745-497b-88d2-088332d4fae0" name="Changes" comment="initial commit">
+    <list default="true" id="55af3859-d745-497b-88d2-088332d4fae0" name="Changes" comment="updated">
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/AdapterClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/Adapters/MyRecyclerAdapterDashboard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/ApiClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/API_Classes/ApiClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/DataClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/DataClasses/API_Data.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/DetailsViewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/Activities/DetailsViewActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/Activities/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/Activities/RegistrationActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/SplashScreenActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/Activities/SplashScreenActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/activityDashboard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/Activities/ActivityDashboard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/dataBase/MyDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/dataBase/MyDB.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/dataBase/MyEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myproject/dataBase/MyEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_details_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_toolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_toolbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +99,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\ajitht\.android\avd\MyPhone_API_34.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\ajitht\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -76,12 +108,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
-        <option value="Kotlin Data Class" />
         <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
-        <option value="Kotlin Interface" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -105,12 +137,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ajiththangavel"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ajiththangavel&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -142,21 +174,33 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/ajitht/AndroidStudioProjects/MyProject/app/src/main/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ajitht/AndroidStudioProjects/MyProject&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ajitht/AndroidStudioProjects/MyProject/app/src/main/java/com/example/myproject/API_Classes&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="android.template.-196154897">
+      <recent name="com.example.myproject" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ajitht\AndroidStudioProjects\MyProject\app\src\main\res\drawable" />
     </key>
     <key name="android.template.-355218712">
       <recent name="com.example.myproject" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ajitht\AndroidStudioProjects\MyProject\app\src\main\java\com\example\myproject\API_Classes" />
+      <recent name="C:\Users\ajitht\AndroidStudioProjects\MyProject\app\src\main\java\com\example\myproject" />
+    </key>
     <key name="android.template.727903013">
       <recent name="com.example.myproject" />
     </key>
     <key name="android.template.143629311">
       <recent name="com.example.myproject" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.myproject.Activities" />
+      <recent name="com.example.myproject.DataClasses" />
+      <recent name="com.example.myproject.Adapters" />
     </key>
   </component>
   <component name="RunManager">
@@ -309,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712139972781</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updated">
+      <option name="closed" value="true" />
+      <created>1712494307647</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712494307647</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,7 +375,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="AndroidProject/main" />
                       </list>
                     </value>
                   </entry>
@@ -338,6 +390,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
   </component>
 </project>

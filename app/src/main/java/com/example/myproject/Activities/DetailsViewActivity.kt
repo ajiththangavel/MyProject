@@ -1,14 +1,12 @@
-package com.example.myproject
+package com.example.myproject.Activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.myproject.DataClasses.API_Data
+import com.example.myproject.R
 
 class DetailsViewActivity : AppCompatActivity() {
 
@@ -21,7 +19,7 @@ class DetailsViewActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
                         insets
         }*/
-        val data = intent.getParcelableExtra<DataClass>("data")
+        val data = intent.getParcelableExtra<API_Data>("data")
         if(data != null){
             val textView = findViewById<TextView>(R.id.textView)
             val imageView = findViewById<ImageView>(R.id.imageView)

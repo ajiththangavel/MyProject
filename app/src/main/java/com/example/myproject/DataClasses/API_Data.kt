@@ -1,10 +1,10 @@
-package com.example.myproject
+package com.example.myproject.DataClasses
 
 import android.os.Parcel
 import android.os.Parcelable
 
 // Define a data class DataClass implementing Parcelable interface to pass data between activities
-data class DataClass(var title : String, var thumbnailUrl : String) : Parcelable {
+data class API_Data(var title : String, var thumbnailUrl : String) : Parcelable {
     // Constructor for creating DataClass from Parcel
     constructor(parcel: Parcel) : this(
         parcel.readString()!!, // Read title from Parcel
@@ -21,12 +21,12 @@ data class DataClass(var title : String, var thumbnailUrl : String) : Parcelable
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<DataClass> {
-        override fun createFromParcel(parcel: Parcel): DataClass {
-            return DataClass(parcel)
+    companion object CREATOR : Parcelable.Creator<API_Data> {
+        override fun createFromParcel(parcel: Parcel): API_Data {
+            return API_Data(parcel)
         }
 
-        override fun newArray(size: Int): Array<DataClass?> {
+        override fun newArray(size: Int): Array<API_Data?> {
             return arrayOfNulls(size)
         }
     }

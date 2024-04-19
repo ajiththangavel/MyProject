@@ -1,12 +1,11 @@
-package com.example.myproject
+package com.example.myproject.Activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.myproject.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
